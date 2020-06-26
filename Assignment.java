@@ -30,11 +30,7 @@ class Thermometer extends TemperatureConverter {
 
     protected boolean isHot(double temperature) {
         
-        if (temperature > 30) {
-            return true;
-        }
-
-        return false;
+        return temperature > 30;
     }
     
 }
@@ -53,11 +49,8 @@ class Thermocouple extends TemperatureConverter {
 
     protected boolean isHot(double temperature) {
         
-        if (temperature > 30) {
-            return true;
-        }
+        return temperature > 30;
 
-        return false;
     }
     
 }
@@ -76,11 +69,7 @@ class PitotTube extends SpeedConverter {
 
     protected boolean isFast(double speed) {
 
-        if (speed > 80) {
-            return true;
-        }
-
-        return false;
+        return speed > 80;
     }
 }
 
@@ -98,11 +87,7 @@ class ShaftLog extends SpeedConverter {
 
     protected boolean isFast(double speed) {
 
-        if (speed > 80) {
-            return true;
-        }
-
-        return false;
+        return speed > 80;
     }
 }
 
@@ -118,33 +103,35 @@ class Assignment {
         System.out.print("\nEnter a choice of object: ");
         int choice = sc.nextInt();
 
-        if (choice == 1) {
+        switch(choice) {
 
-            converter = new Thermometer();
-            System.out.println(converter.convert(36.88));
-            System.out.println(converter.isHot(36.88)); // Fails
-            System.out.println(((Thermometer)converter).isHot(36.88)); // Works
+            case 1: 
+                    converter = new Thermometer();
+                    System.out.println(converter.convert(36.88));
+                    // System.out.println(converter.isHot(36.88)); // Fails
+                    System.out.println(((Thermometer)converter).isHot(36.88)); // Works
+                    break;
 
-        } else if (choice == 2) {
+            case 2: 
+                    converter = new Thermocouple();
+                    System.out.println(converter.convert(36.88));
+                    // System.out.println(converter.isHot(36.88)); // Fails
+                    System.out.println(((Thermocouple)converter).isHot(36.88)); // Works
+                    break;
 
-            converter = new Thermocouple();
-            System.out.println(converter.convert(36.88));
-            System.out.println(converter.isHot(36.88)); // Fails
-            System.out.println(((Thermocouple)converter).isHot(36.88)); // Works
+            case 3: 
+                    converter = new PitotTube();
+                    System.out.println(converter.convert(110.54));
+                    // System.out.println(converter.isFast(110.54)); // Fails
+                    System.out.println(((PitotTube)converter).isFast(110.54)); // Works
+                    break;
 
-        } else if (choice == 3) {
-
-            converter = new PitotTube();
-            System.out.println(converter.convert(110.54));
-            System.out.println(converter.isFast(110.54)); // Fails
-            System.out.println(((PitotTube)converter).isFast(110.54)); // Works
-
-        } else if (choice == 4) {
-
-            converter = new ShaftLog();
-            System.out.println(converter.convert(110.54));
-            System.out.println(converter.isFast(110.54)); // Fails
-            System.out.println(((ShaftLog)converter).isFast(110.54)); // Works
+            case 4:
+                    converter = new ShaftLog();
+                    System.out.println(converter.convert(110.54));
+                    // System.out.println(converter.isFast(110.54)); // Fails
+                    System.out.println(((ShaftLog)converter).isFast(110.54)); // Works
+            
         }
 
         sc.close();
