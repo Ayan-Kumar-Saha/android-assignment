@@ -21,11 +21,11 @@ class Thermometer extends TemperatureConverter {
 
     public Object convert(Object celsius) {
 
-        Double double_celsius = (Double) celsius;
+        double double_celsius = (double) celsius;
 
-        Double fahrenheit = ((9.0/5.0) * double_celsius) + 32;
+        double fahrenheit = ((9.0/5.0) * double_celsius) + 32;
 
-        return (Object) fahrenheit;
+        return fahrenheit;
     }
 
     protected boolean isHot(double temperature) {
@@ -40,11 +40,11 @@ class Thermocouple extends TemperatureConverter {
 
     public Object convert(Object celsius) {
 
-        Double double_celsius = (Double) celsius;
+        double double_celsius = (double) celsius;
 
-        Double kelvin = double_celsius + 273.15;
+        double kelvin = double_celsius + 273.15;
 
-        return (Object) kelvin;
+        return kelvin;
     }
 
     protected boolean isHot(double temperature) {
@@ -60,11 +60,11 @@ class PitotTube extends SpeedConverter {
 
     public Object convert(Object kmh) {
 
-        Double double_kmh = (Double) kmh;
+        double double_kmh = (double) kmh;
 
-        Double mach = double_kmh * 0.000816327;
+        double mach = double_kmh * 0.000816327;
 
-        return (Object) mach;
+        return mach;
     }
 
     protected boolean isFast(double speed) {
@@ -78,11 +78,11 @@ class ShaftLog extends SpeedConverter {
 
     public Object convert(Object kmh) {
 
-        Double double_kmh = (Double) kmh;
+        double double_kmh = (double) kmh;
 
-        Double mph = double_kmh * 0.62;
+        double mph = double_kmh * 0.62;
 
-        return (Object) mph;
+        return mph;
     }
 
     protected boolean isFast(double speed) {
